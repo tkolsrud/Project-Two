@@ -1,0 +1,57 @@
+/* *{
+    box-sizing: border-box;
+    padding: none;
+    margin: none;
+}
+
+.navbar {
+    background-color: dodgerblue;
+}
+
+.div_carousel {
+    background-color: burlywood;
+    height: 400px;
+}
+
+.div_about-header {
+    background-color:darkcyan;
+    display: flex;
+    justify-content: center;
+}
+
+.div_about-textarea {
+    display: inline-flex;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+}
+.section_panel-left {
+    background-color: burlywood;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.p_cities-header {
+    margin: 30px;
+}
+.div_city-link {
+    width: 85%;
+    height: 100px;
+    padding: 20px;
+    margin: 30px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+.section_panel-right {
+    background-color: pink;
+    width: 60%;
+}
+
+.div_userinfo {
+    background-color: khaki;
+    height: 40%;
+} */

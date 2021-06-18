@@ -1,0 +1,49 @@
+{% extends 'base.html'%} {% block content%}
+
+<body>
+
+    <main>
+        <section class="section_panel-left">
+            <p class="p_cities-header">Cities</p>
+            <a href="" alt="London-Winter" class="a_city-link">
+                 <div class="div_city-link">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.m8P-cv2fu4JGUJ2y9jnIUQHaE8%26pid%3DApi&f=1" alt="London-Winter" class="img_city-link">
+                    <p class="p_city-link">London</p>
+                </div>
+            </a>
+            <a href="" class="a_city-link">
+                <div class="div_city-link">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PzJkKVf_HsIAm65WLR2afgHaEp%26pid%3DApi&f=1" alt="Sydney-Winter" class="img_city-link">
+                    <p class="p_city-link">Sydney</p>
+                </div>
+            </a>
+                <a href="" class="a_city-link">
+                <div class="div_city-link">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.HhncaQYPO3rx5JMdo0O3mQHaFj%26pid%3DApi&f=1"  alt="San-Francisco-Winter" class="img_city-link">
+                    <p class="p_city-link">San Francisco</p>
+                </div>
+            </a>
+            <a href="" class="a_city-link">
+                 <div class="div_city-link">
+                    <img src="https://s29755.pcdn.co/wp-content/uploads/2019/02/shutterstock_Seattle_snow-1.jpg" alt="Seattle-Winter" class="img_city-link">
+                    <p class="p_city-link">Seattle</p>
+                </div>
+            </a>
+        </section>
+        <section class="section_panel-right">
+            <div class="div_post-detail">
+                <img class="img_post-detail" src="{{ post.img }}" alt="">
+                <h2 class="h2_post-detail-title">{{ post.title }}</h2>
+                <h3 class="h3_post-author">by {{ user.username}}</h3>
+                <p class="p_post-detail-body" id="post-detail-body">{{ post.body }}</p>
+            </div>
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>
+
+{% endblock %}

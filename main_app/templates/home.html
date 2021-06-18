@@ -1,0 +1,94 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<body>
+
+    {% comment %} <div class="navbar">
+        <span class="logo">
+            Wayfarer
+        </span>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Log In</a>
+            </li>
+        </ul>
+    </div> {% endcomment %}
+ 
+   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+     <div class="carousel-inner">
+       <div class="carousel-item active">
+       <img src="{{ 'static/images/Img1.jpeg' }}" class="d-block w-100" alt="London-Winter">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ 'static/images/Img2.jpeg' }}" class="d-block w-100" alt="Sydney-Winter">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ 'static/images/Img3.jpeg' }}" class="d-block w-100" alt="San Francisco-Winter">
+    </div>
+    {% comment %} <div class="carousel-item">
+      <img src="{{ 'static/images/Img4.jpeg' }}" class="d-block w-100" alt="Seattle-Winter">
+    </div> {% endcomment %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+    <div class="div_about-header">
+        <h4 id="h4_wayfarer">Wayfarer is....</h4>
+    </div>
+
+  <div class="topics-container">
+
+    <div class="div_about-textarea s1">
+        <section class="section_textarea section_textarea-left">
+            <h4 class="section_textarea-header">Topic</h4>
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem numquam quos quasi, veritatis delectus minima
+            odit iusto consequuntur odio blanditiis aut nesciunt facere earum placeat, labore consequatur architecto
+            accusamus quo.
+            </p>
+        </section>
+    </div>
+
+    <div class="div_about-textarea s2">
+        <section class="section_textarea section_textarea-middle">
+            <h4 class="section_textarea-header">Topic</h4>
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sunt similique, ratione saepe perspiciatis
+            rerum recusandae repellat dolorum obcaecati dolor quos voluptatum laudantium! Distinctio, nisi in cupiditate
+            reiciendis sapiente iure.
+            </p>
+        </section>
+    </div>
+
+    <div class="div_about-textarea s3">
+        <section class="section_textarea section_textarea-right">
+            <h4 class="section_textarea-header">Topic</h4>
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat totam et culpa provident. Dolore in natus
+            magnam placeat, velit necessitatibus facilis eius dignissimos molestiae quia quibusdam esse ullam distinctio
+            totam!
+            </p>
+        </section>
+    </div>
+
+  </div>
+
+
+
+   
+
+</body>
+
+
+{% endblock %}

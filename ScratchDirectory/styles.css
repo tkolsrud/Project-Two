@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    padding: none;
+    margin: none;
+}
+
+.navbar {
+    background-color: dodgerblue;
+}
+
+.div_carousel {
+    background-color: burlywood;
+    height: 400px;
+}
+
+.div_about-header {
+    background-color:darkcyan;
+    display: flex;
+    justify-content: center;
+}
+
+.div_about-textarea {
+    display: inline-flex;
+}

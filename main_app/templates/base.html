@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    
+    <title>Wayfarer</title>
+</head>
+<body>
+ 
+
+
+    {% comment %} This code will ideally alter the navbar depending on if a user is ogged in or not {% endcomment %}
+
+    {% comment %} {% if user.is_authenticicated %}
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+
+
+    {% else %}
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %} {% endcomment %}
+
+
+
+    <div class="navbar">
+        <span class="logo">
+            Wayfarer
+        </span>
+        <ul class="nav justify-content-end">
+            
+                {% if user.is_authenticated %}
+
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'home' %}">Home</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'profile' %}">Profile</a> </li>
+                    <li class="nav-item logout"> <a class="nav-link" href="{% url 'logout' %}">Logout</a> </li>
+
+                {% else %}
+
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'home' %}">Home</a> </li>
+                   <a class="nav-link" href="" data-toggle="modal" data-target="#signup-modal">
+    Sign Up
+</a>
+                    {% comment %} <li class="nav-item"> <a class="nav-link" href="{% url 'signup' %}">Sign Up</a> </li> {% endcomment %}
+                    
+                    <a class="nav-link login" href="" data-toggle="modal" data-target="#login-modal">
+    Login
+</a>
+                    {% comment %} <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}">Login</a> </li> {% endcomment %}
+                    
+                {% endif %}
+
+        </ul>
+    </div>
+
+
+    {% comment %} This is the old code that isn't a dynamic navbar, we can revert to this if it breaks {% endcomment %}
+
+     {% comment %} <div class="navbar">
+        <span class="logo">
+            Wayfarer
+        </span>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="/accounts/signup/">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Log In</a>
+            </li>
+        </ul>
+    </div>  {% endcomment %}
+    <form method="POST" action="{% url 'signup' %}">
+ <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Sign Up!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                 {{ form.errors }}
+
+                    {% comment %} <form method="POST" action="{% url 'home' %}">
+                        Do i work at all? {% endcomment %}
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {{ profile_form.as_p }}
+                        {% comment %} <input type="submit" value="Sign Up"/>
+                        <input type="hidden" value="{{ next }}" name="next"/> {% endcomment %}
+
+                    
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn_close-modal" data-dismiss="modal">Close</button>
+                
+                  <button type="submit" class="btn btn_submit">Register</button>
+              </div>
+          </div>
+      </div>
+  </div> 
+</form>
+    <form method="POST" action="{% url 'login' %}">
+ <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Log In</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                 {{ form.errors }}
+
+                {% csrf_token %}{{log_in.as_p}}
+    
+                
+                <input type="hidden" value="{{ next }}" name="next">
+
+
+                    
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn_close-modal" data-dismiss="modal">Close</button>
+                
+                  <button type="submit" class="btn btn_submit">Log In</button>
+              </div>
+          </div>
+      </div>
+  </div> 
+</form>
+<script src="/main.js/"></script>
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>

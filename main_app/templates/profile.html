@@ -1,0 +1,89 @@
+{% extends 'base.html'%} {% block content%}
+
+<body>
+
+    <main>
+        <section class="section_panel-left">
+            <p class="p_cities-header">Cities</p>
+            <a href="" class="a_city-link">
+                 <div class="div_city-link">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.m8P-cv2fu4JGUJ2y9jnIUQHaE8%26pid%3DApi&f=1" alt="London-Winter" class="img_city-link">
+                    <p class="p_city-link">London</p>
+                </div>
+            </a>
+            <a href="" class="a_city-link">
+                <div class="div_city-link">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.PzJkKVf_HsIAm65WLR2afgHaEp%26pid%3DApi&f=1" alt="Sydney-Winter" class="img_city-link">
+                    <p class="p_city-link">Sydney</p>
+                </div>
+            </a>
+                <a href="" class="a_city-link">
+                <div class="div_city-link">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.HhncaQYPO3rx5JMdo0O3mQHaFj%26pid%3DApi&f=1" alt="San-Francisco-Winter" class="img_city-link">
+                    <p class="p_city-link">San Francisco</p>
+                </div>
+            </a>
+            <a href="" class="a_city-link">
+                 <div class="div_city-link">
+                    <img src="https://s29755.pcdn.co/wp-content/uploads/2019/02/shutterstock_Seattle_snow-1.jpg" alt="Seattle-Winter" class="img_city-link">
+                    <p class="p_city-link">Seattle</p>
+                </div>
+            </a>
+        </section>
+        <section class="section_panel-right">
+            <div class="div_userinfo">
+                <div class="div_user-text-info">
+
+
+                    <p class="p_username">{{ user.username }}</p>
+                    <h2 class="p_home-city">{{ user.userprofile.current_city }}<a class="a_edit-profile" href="{% url 'edit_profile' user.userprofile.pk %}"><i class="far fa-edit icon_edit-profile"></i></a> 
+                    </h2>
+                    <p class="p_member-since">Member since {{ user.date_joined }}</p>
+                    {% comment %} Need to style button, user.userprofile pk is saying which ROW of the table to go to {% endcomment %}
+                    
+
+                    </div>
+
+
+                <div class="div_user-city-photo">
+
+                        {% if user.userprofile.current_city == 'London' %}
+                            <img src="https://www.chatelaine.com/wp-content/uploads/2016/06/london-uk-travel.png" class="img_user-city" alt="">
+                            <img src="{{ 'static/images/Img1.jpeg' }}" alt="">
+                
+                        {% elif user.userprofile.current_city == 'Sydney' %}
+                            <img src="https://blog.sportslanguage.com/wp-content/uploads/2020/08/opera.jpg" class="img_user-city" alt="">
+                        
+                        {% elif user.userprofile.current_city == 'San Francisco' %}
+                            <img src="https://media.cntraveler.com/photos/5a99b5c520dfb6552425ecc8/master/w_1200,c_limit/san-francisco_GettyImages-600366840.jpg?mbid=social_retweet" class="img_user-city" alt="">
+                        
+                        {% else %}
+                            <img src="https://www.snappguides.co/wp-content/uploads/2018/03/spot1b_seattle-at-dusk.jpg" class="img_user-city" alt="">
+                
+                        {% endif %}
+
+                </div>
+            </div>
+            <div class="container-fluid div_userposts">
+                <h2>Your Posts</h2>
+            {% for post in posts%}
+                <a href="{% url 'post_detail' post.pk %}" class="card a_userposts-card">
+                    <img src="{{post.img}}" class="card-img-top" alt="">
+                        <div>
+                        <h6 class="card-title">{{post.title}}</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium fugit, ab sapiente</p>
+                        </div>
+                </a>                
+                
+                {% endfor %}
+            </div>
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>
+
+{% endblock %}
